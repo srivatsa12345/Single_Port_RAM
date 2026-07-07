@@ -17,10 +17,16 @@ reset=1;
 end
 ram_if intrf(clk,reset);
 RAM DUV(.data_in(intrf.data_in),.read_enb(intrf.read_enb),.write_enb(intrf.write_enb),.data_out(intrf.data_out),.address(intrf.address),.clk(clk),.reset(reset));
-ram_test test;
+//ram_test test;
+//test=new(intrf.DRV,intrf.MON,intrf.REF_SB);
+//test1 tb1= new(intrf.DRV,intrf.MON,intrf.REF_SB);
+//test2 tb2= new(intrf.DRV,intrf.MON,intrf.REF_SB);
+//test4 tb4= new(intrf.DRV,intrf.MON,intrf.REF_SB);
+test_regression tb_regression= new(intrf.DRV,intrf.MON,intrf.REF_SB);
+
 initial begin
-test=new(intrf.DRV,intrf.MON,intrf.REF_SB);
-test.run();
+//test.run();
+tb_regression.run();
 $finish();
 end
 endmodule
