@@ -5,12 +5,14 @@ input read_enb;
 input[7:0]data_in;
 input clk;
 input reset;
+integer i;
 output[7:0]data_out;
 reg[7:0]data_out;
 reg[7:0]memory[0:31];
 always@(posedge clk)begin
 if(!reset)
-memory[address]<=8'bz;
+for(i=0;i<32;i++)
+memory[i]<=8'bz;
 else if(write_enb&&!read_enb)
 memory[address]<=data_in;
 end

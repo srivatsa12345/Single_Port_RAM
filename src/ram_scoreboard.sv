@@ -26,20 +26,23 @@ mon_mem[mon2sb_trans.address]=mon2sb_trans.data_out;
 $display("SCB MON data_out=%0h,ADDRESS=%0h",mon_mem[mon2sb_trans.address],mon2sb_trans.address,$time);
 end
 join
-if(i!=(`num_transactions-1))
 compare_report();
 end
 endtask
 task compare_report();
 if(ref_mem[ref2sb_trans.address]===mon_mem[mon2sb_trans.address])begin
+	$display("******************************************************************************************************************************************");
 $display("SCB REF data_out=%0h,MON data_out=%0h",ref_mem[ref2sb_trans.address],mon_mem[mon2sb_trans.address],$time);
 ++MATCH;
 $display("DATA MATCH SUCCESS.COUNT =%0d",MATCH);
+	$display("******************************************************************************************************************************************");
 end
 else begin
+	$display("____________________________________________________________________________________________________________________________________________");
 $display("SCB REF data_out=%0h,MON data_out=%0h",ref_mem[ref2sb_trans.address],mon_mem[mon2sb_trans.address],$time);
 ++MISMATCH;
 $display("DATA MATCH FAIL.COUNT %0d",MISMATCH);
+	$display("____________________________________________________________________________________________________________________________________________");
 end
 endtask
 endclass

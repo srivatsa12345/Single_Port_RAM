@@ -16,6 +16,7 @@ endclocking
 clocking mon_cb@(posedge clk);
 default input #1 output #1;
 input data_out;
+input address;
 endclocking
 clocking ref_cb@(posedge clk);
 default input #1 output #1;

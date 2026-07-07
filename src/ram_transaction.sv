@@ -16,10 +16,7 @@ endfunction
 endclass
 
 class ram_transaction1 extends ram_transaction;
-  //CONSTRAINTS OVERRIDING by extending the transaction class
  constraint wr_rd_constraint {{write_enb,read_enb}==2'b01;}
-//METHODS
-//Copying objects for blueprint
  virtual function ram_transaction copy();
   ram_transaction1 copy1;
   copy1=new();
@@ -32,10 +29,7 @@ class ram_transaction1 extends ram_transaction;
 endclass
 
 class ram_transaction2 extends ram_transaction;
-//CONSTRAINTS OVERRIDING by extending the transaction class
  constraint wr_rd_constraint {{write_enb,read_enb}==2'b10;}
-//METHODS
-//Copying objects for blueprint
  virtual function ram_transaction copy();
   ram_transaction2 copy2;
   copy2=new();
@@ -48,10 +42,7 @@ class ram_transaction2 extends ram_transaction;
 endclass
 
 class ram_transaction4 extends ram_transaction;
-//CONSTRAINTS OVERRIDING by extending the transaction class
  constraint wr_rd_constraint {{write_enb,read_enb}==2'b00;}
-//METHODS
-//Copying objects for blueprint
  virtual function ram_transaction copy();
   ram_transaction4 copy4;
   copy4=new();

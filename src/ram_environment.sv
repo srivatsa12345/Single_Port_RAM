@@ -38,6 +38,5 @@ mon.start();
 scb.start();
 ref_sb.start();
 join
-scb.compare_report();
 endtask
 endclass

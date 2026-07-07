@@ -14,9 +14,9 @@ task start();
 repeat(4)@(vif.mon_cb);
 for(int i=0;i<`num_transactions;i++)begin
 mon_trans=new();
-repeat(1)@(vif.mon_cb)begin
+repeat(2)@(vif.mon_cb);
+mon_trans.address=vif.mon_cb.address;
 mon_trans.data_out=vif.mon_cb.data_out;
-end
 $display("MONITOR PASSING DATA TO SCOREBOARD data_out=%0h",mon_trans.data_out,$time);
 mbx_ms.put(mon_trans);
 mon_cg.sample();
